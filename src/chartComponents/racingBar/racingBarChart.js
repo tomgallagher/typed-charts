@@ -50,7 +50,7 @@ export const RacingBarChart = ({ data }) => {
             //if you just had data(data), then the index is used by default
             //if index used, color will change but bars do not move
             //so we add add key callback function
-            .data(data, (entry, index) => entry.name)
+            .data(data, (entry, index) => entry.unique_id)
             //maps each of the entries in the array to a rect element
             //you can just join('rect') but this means there is a transition
             //as the SVG is built
@@ -82,7 +82,7 @@ export const RacingBarChart = ({ data }) => {
         // draw the labels, similar but with changes as it's text
         svg.selectAll('.label')
             //KEY - synchronises the labels with the data array
-            .data(data, (entry, index) => entry.name)
+            .data(data, (entry, index) => entry.unique_id)
             //map to SVG element
             //again, using callback function to prevent transition effect
             //on first paint
