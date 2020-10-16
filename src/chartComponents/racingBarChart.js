@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { select, scaleBand, scaleLinear, max } from 'd3';
-import { useResizeObserver } from '../../hooks/useResizeObserver';
-import './racingBarChart.css';
+import { useResizeObserver } from '../hooks/useResizeObserver';
 
 //https://www.youtube.com/watch?v=lx5k8oQHaJQ&t=107s
 //https://github.com/muratkemaldar/using-react-hooks-with-d3/tree/09-racing-bar-chart
@@ -15,6 +14,7 @@ export const RacingBarChart = ({ data }) => {
     useEffect(() => {
         //this is what gives D3 the ability to work with the SVG element
         const svg = select(svgRef.current);
+        //if the wrapper has not been measured then return, otherwise we get an error
         if (!dimensions) return;
 
         // sorting the data so the biggest is always at the top
@@ -99,8 +99,12 @@ export const RacingBarChart = ({ data }) => {
     }, [data, dimensions]);
 
     return (
-        <div ref={wrapperRef} style={{ marginBottom: '1rem', width: '100%' }}>
-            <svg ref={svgRef} style={{ width: '100%', height: '300px' }} />
+        <div ref={wrapperRef} style={{ width: '100%' }}>
+            <svg
+                className='racing-bar-svg'
+                ref={svgRef}
+                style={{ width: '100%', height: '300px', overflow: 'visible' }}
+            />
         </div>
     );
 };

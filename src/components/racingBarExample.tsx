@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Header, Divider, Button, Statistic } from 'semantic-ui-react';
+import { Header, Button, Statistic } from 'semantic-ui-react';
 import { useInterval } from '../hooks/useInterval';
 import { useRacingBarData } from '../hooks/useRacingBarData';
-import { RacingBarChart } from '../chartComponents/racingBar/racingBarChart';
+import { RacingBarChart } from '../chartComponents/racingBarChart';
 
 const getRandomIndex = (array: any[]) => {
     return Math.floor(array.length * Math.random());
@@ -36,15 +36,16 @@ export const RacingBarExample = () => {
     }, 500);
 
     return (
-        <div className='App'>
+        <div className='chartWrapper'>
             <Header textAlign='center'>Racing Bar Chart</Header>
             <RacingBarChart data={racingBarData} />
-            <Divider hidden />
-            <Button onClick={() => setStart(!start)}>{start ? 'Stop the race' : 'Start the race!'}</Button>
-            <Statistic floated='right'>
-                <Statistic.Value>{iteration}</Statistic.Value>
-                <Statistic.Label>Iterations</Statistic.Label>
-            </Statistic>
+            <div className='chartControls'>
+                <Button onClick={() => setStart(!start)}>{start ? 'Stop the race' : 'Start the race!'}</Button>
+                <Statistic>
+                    <Statistic.Value>{iteration}</Statistic.Value>
+                    <Statistic.Label>Iterations</Statistic.Label>
+                </Statistic>
+            </div>
         </div>
     );
 };
