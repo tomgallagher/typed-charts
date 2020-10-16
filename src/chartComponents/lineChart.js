@@ -67,7 +67,7 @@ export const LineChart = ({ data }) => {
 
     return (
         <div ref={wrapperRef} style={{ width: '100%' }}>
-            <svg className='line-svg' ref={svgRef} style={{ width: '100%', height: '300px', overflow: 'visible' }}>
+            <svg ref={svgRef} style={{ width: '100%', height: '300px', overflow: 'visible' }}>
                 <g className='x-axis' />
                 <g className='y-axis' />
             </svg>

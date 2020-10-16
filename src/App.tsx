@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import { RacingBarExample } from './components/racingBarExample';
 import { LineExample } from './components/lineExample';
+import { AnimatedBarExample } from './components/animatedBarExample';
 
 function App() {
     return (
@@ -12,6 +13,9 @@ function App() {
                 </Grid.Column>
                 <Grid.Column>
                     <LineExample />
+                </Grid.Column>
+                <Grid.Column>
+                    <AnimatedBarExample />
                 </Grid.Column>
             </Grid.Row>
         </Grid>

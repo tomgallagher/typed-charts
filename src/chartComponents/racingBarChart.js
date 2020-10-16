@@ -52,10 +52,8 @@ export const RacingBarChart = ({ data }) => {
             //so we add add key callback function
             .data(data, (entry, index) => entry.unique_id)
             //maps each of the entries in the array to a rect element
-            //you can just join('rect') but this means there is a transition
-            //as the SVG is built
-            //if you want the paint to start without transtion
-            //you need a callback to set the y position from the beginning
+            //you can just join('rect') but this means there is a transition as the SVG is built
+            //if you want the paint to start without transtion you need a callback to set the y position from the beginning
             .join((enter) => enter.append('rect').attr('y', (entry, index) => yScale(index)))
             //add the color of each entry using the fill attribute
             .attr('fill', (entry) => entry.color)
@@ -100,11 +98,7 @@ export const RacingBarChart = ({ data }) => {
 
     return (
         <div ref={wrapperRef} style={{ width: '100%' }}>
-            <svg
-                className='racing-bar-svg'
-                ref={svgRef}
-                style={{ width: '100%', height: '300px', overflow: 'visible' }}
-            />
+            <svg ref={svgRef} style={{ width: '100%', height: '300px', overflow: 'visible' }} />
         </div>
     );
 };
