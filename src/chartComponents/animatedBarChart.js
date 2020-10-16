@@ -90,7 +90,7 @@ export const AnimatedBarChart = ({ data }) => {
     }, [data, dimensions]);
 
     return (
-        <div ref={wrapperRef} style={{ width: '100%' }}>
+        <div className='chartContainer' ref={wrapperRef}>
             <svg ref={svgRef} style={{ width: '100%', height: '300px', overflow: 'visible' }}>
                 <g className='x-axis' />
                 <g className='y-axis' />

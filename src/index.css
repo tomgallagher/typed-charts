@@ -4,9 +4,14 @@
     align-items: stretch;
     justify-content: flex-start;
     height: 100%;
-    padding: 15px;
+    padding: 1em;
     text-align: center;
     box-sizing: border-box;
+}
+
+.chartContainer {
+    padding: 0 1em 2em 1em;
+    width: 100%;
 }
 
 .chartControls {
@@ -14,7 +19,5 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    padding: 15px;
     box-sizing: border-box;
-    margin-top: 2em;
 }

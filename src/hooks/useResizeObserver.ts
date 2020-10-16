@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 
-export const useResizeObserver = (ref) => {
-    const [dimensions, setDimensions] = useState(null);
+export const useResizeObserver = (ref: any) => {
+    const [dimensions, setDimensions] = useState<DOMRectReadOnly | null>(null);
     useEffect(() => {
         const observeTarget = ref.current;
         const resizeObserver = new ResizeObserver((entries) => {

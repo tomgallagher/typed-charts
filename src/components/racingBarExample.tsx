@@ -41,7 +41,7 @@ export const RacingBarExample = () => {
             <RacingBarChart data={racingBarData} />
             <div className='chartControls'>
                 <Button onClick={() => setStart(!start)}>{start ? 'Stop the race' : 'Start the race!'}</Button>
-                <Statistic>
+                <Statistic style={{ margin: '0px' }}>
                     <Statistic.Value>{iteration}</Statistic.Value>
                     <Statistic.Label>Iterations</Statistic.Label>
                 </Statistic>
