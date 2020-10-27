@@ -3,6 +3,7 @@ import { Grid } from 'semantic-ui-react';
 import { RacingBarExample } from './components/racingBarExample';
 import { LineExample } from './components/lineExample';
 import { AnimatedBarExample } from './components/animatedBarExample';
+import { AnimatedTreeExample } from './components/animatedTreeExample';
 
 function App() {
     return (
@@ -16,6 +17,11 @@ function App() {
                 </Grid.Column>
                 <Grid.Column>
                     <AnimatedBarExample />
+                </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns={1}>
+                <Grid.Column>
+                    <AnimatedTreeExample />
                 </Grid.Column>
             </Grid.Row>
         </Grid>
