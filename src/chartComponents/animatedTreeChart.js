@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { select, hierarchy, tree, linkHorizontal } from 'd3';
+import { getRandomColor } from './chartTypes';
 import { useResizeObserver } from '../hooks/useResizeObserver';
 
 export const AnimatedTreeChart = ({ data }) => {
@@ -41,7 +42,7 @@ export const AnimatedTreeChart = ({ data }) => {
             //radius of the circle
             .attr('r', 4)
             //color
-            .attr('fill', 'black')
+            .attr('fill', getRandomColor())
             //then the special x and y position property for circles, flipped for horizontal tree
             .attr('cx', (node) => node.y)
             .attr('cy', (node) => node.x)
@@ -66,7 +67,7 @@ export const AnimatedTreeChart = ({ data }) => {
                 const length = this.getTotalLength();
                 return `${length} ${length}`;
             })
-            .attr('stroke', 'black')
+            .attr('stroke', getRandomColor())
             .attr('fill', 'none')
             .attr('opacity', 1)
             .attr('stroke-dashoffset', function () {

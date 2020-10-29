@@ -6,7 +6,7 @@ export enum ChartType {
     Line = 'line',
 }
 
-const getRandomColor = () => {
+export const getRandomColor = () => {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 };
 
