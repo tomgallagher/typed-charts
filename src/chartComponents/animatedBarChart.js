@@ -4,7 +4,7 @@ import { useResizeObserver } from '../hooks/useResizeObserver';
 
 //https://muratorium.com/using-react-hooks-with-d3
 
-https: export const AnimatedBarChart = ({ data }) => {
+export const AnimatedBarChart = ({ data }) => {
     const svgRef = useRef();
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);

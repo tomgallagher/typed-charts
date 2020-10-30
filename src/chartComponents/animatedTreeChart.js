@@ -3,9 +3,9 @@ import { select, hierarchy, tree, linkHorizontal } from 'd3';
 import { getRandomColor } from './chartTypes';
 import { useResizeObserver } from '../hooks/useResizeObserver';
 
-//muratorium.com/using-react-hooks-with-d3
+//https://muratorium.com/using-react-hooks-with-d3
 
-https: export const AnimatedTreeChart = ({ data }) => {
+export const AnimatedTreeChart = ({ data }) => {
     const svgRef = useRef();
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
