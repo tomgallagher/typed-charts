@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { geoMercator, geoPath, select } from 'd3';
 import { useResizeObserver } from '../hooks/useResizeObserver';
 
-//https://www.youtube.com/watch?v=lx5k8oQHaJQ&t=107s
+//https://muratorium.com/using-react-hooks-with-d3
 //https://github.com/muratkemaldar/using-react-hooks-with-d3/
 
 export const WorldMap = ({ data, property }) => {

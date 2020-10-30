@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { select, max, axisBottom, axisLeft, scaleLinear, scaleBand } from 'd3';
 import { useResizeObserver } from '../hooks/useResizeObserver';
 
-export const AnimatedBarChart = ({ data }) => {
+//https://muratorium.com/using-react-hooks-with-d3
+
+https: export const AnimatedBarChart = ({ data }) => {
     const svgRef = useRef();
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);

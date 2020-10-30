@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { select, line, curveCardinal, max, axisBottom, axisLeft, scaleLinear } from 'd3';
 import { useResizeObserver } from '../hooks/useResizeObserver';
 
+//https://muratorium.com/using-react-hooks-with-d3
+
 export const LineChart = ({ data }) => {
     const svgRef = useRef();
     const wrapperRef = useRef();

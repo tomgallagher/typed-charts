@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { select, scaleBand, scaleLinear, max } from 'd3';
 import { useResizeObserver } from '../hooks/useResizeObserver';
 
-//https://www.youtube.com/watch?v=lx5k8oQHaJQ&t=107s
+//https://muratorium.com/using-react-hooks-with-d3
 //https://github.com/muratkemaldar/using-react-hooks-with-d3/tree/09-racing-bar-chart
 
 export const RacingBarChart = ({ data }) => {
