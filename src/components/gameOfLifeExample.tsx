@@ -107,22 +107,21 @@ export const GameOfLifeExample = () => {
     };
 
     const mutateArray = () => {
-        //this starts the timer that we will eventually use to chage the UI over time
+        //this starts the timer that we will eventually use to change the UI over time
         setStart(!start);
-        //create the copy so React knows we have a state change
-        const copy = data.slice(0);
-        //then kill everything that does not have at least two live neighbours
-        const killed = removeOrphansAndCrowded(copy);
-        const animated = addNewBirths(killed);
-        //then update data
-        setData(animated);
     };
 
     useInterval(() => {
         if (start) {
-            //this is where we eventually put the mutate command
+            //create the copy so React knows we have a state change
+            const copy = data.slice(0);
+            //then kill everything that does not have at least two live neighbours
+            const killed = removeOrphansAndCrowded(copy);
+            const animated = addNewBirths(killed);
+            //then update data
+            setData(animated);
         }
-    }, 5000);
+    }, 2000);
 
     return (
         <div className='chartWrapper'>
