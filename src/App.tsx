@@ -6,6 +6,7 @@ import { AnimatedBarExample } from './components/animatedBarExample';
 import { AnimatedTreeExample } from './components/animatedTreeExample';
 import { WorldMapExample } from './components/worldMapExample';
 import { RotatingWorldMapExample } from './components/rotatingWorldMapEample';
+import { GameOfLifeExample } from './components/gameOfLifeExample';
 
 function App() {
     return (
@@ -19,6 +20,11 @@ function App() {
                 </Grid.Column>
                 <Grid.Column>
                     <AnimatedBarExample />
+                </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns={1}>
+                <Grid.Column>
+                    <GameOfLifeExample />
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={1}>

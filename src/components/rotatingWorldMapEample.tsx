@@ -10,7 +10,7 @@ const options = [
 ];
 
 export const RotatingWorldMapExample = () => {
-    const [property, setProperty] = useState<string | null>(null);
+    const [property, setProperty] = useState<string>('pop_est');
     const handleChange = (event: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
         setProperty(String(data.value));
     };
