@@ -53,7 +53,7 @@ const removeOrphansAndCrowded = (copy: boolean[][]): boolean[][] => {
                 const positions = [left, right, top, bottom, topLeft, topRight, bottomRight, bottomLeft];
                 //then we want a count of all those that are true
                 const liveCount = positions.filter(Boolean).length;
-                //if less than 2 then we kill it
+                //if less than 2 then we kill it, also if greater than 3
                 if (liveCount < 2 || liveCount > 3) {
                     mutated[rowIndex][columnIndex] = false;
                 }
