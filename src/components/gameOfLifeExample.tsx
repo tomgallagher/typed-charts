@@ -7,25 +7,42 @@ const SquareGridArray = (rowsColumns: number): boolean[][] => {
     return Array.from(Array(rowsColumns).keys()).map(() => Array(rowsColumns).fill(false));
 };
 
+const BoundedAdjacentPositions = (
+    rowIndex: number,
+    columnIndex: number,
+    gridWidth: number,
+    gridHeight: number
+): number[] => {
+    //the square to the left is index - 1 with a floor of 0
+    const leftPosition = columnIndex === 0 ? 0 : columnIndex - 1;
+    //the square to the right is index + 1 with a max of grid width -1
+    const rightPosition = columnIndex === gridWidth - 1 ? gridWidth - 1 : columnIndex + 1;
+    //the square to the top is one row above, with the same column index, with a floor of 0
+    const topPosition = rowIndex === 0 ? 0 : rowIndex - 1;
+    //the square to the top is one row below, with a max of grid height -1
+    const bottomPosition = rowIndex === gridHeight - 1 ? gridHeight - 1 : rowIndex + 1;
+    //keep the same order on return
+    return [leftPosition, rightPosition, topPosition, bottomPosition];
+};
+
 const removeOrphansAndCrowded = (copy: boolean[][]): boolean[][] => {
     let mutated = copy.slice(0);
     copy.forEach((row, rowIndex) => {
         row.forEach((column, columnIndex) => {
             if (column === true) {
-                //the square to the left is index - 1 with a floor of 0
-                const leftPosition = columnIndex === 0 ? 0 : columnIndex - 1;
+                //use shared function to get positions
+                const [leftPosition, rightPosition, topPosition, bottomPosition] = BoundedAdjacentPositions(
+                    rowIndex,
+                    columnIndex,
+                    row.length,
+                    copy.length
+                );
                 //then we get the item for this , with the current row and the new left position
                 const left = copy[rowIndex][leftPosition];
-                //the square to the right is index + 1 with a max of row width
-                const rightPosition = columnIndex === row.length - 1 ? row.length - 1 : columnIndex + 1;
                 //then we get the item for this
                 const right = copy[rowIndex][rightPosition];
-                //the square to the top is one row above, with the same column index, with a floor of 0
-                const topPosition = rowIndex === 0 ? 0 : rowIndex - 1;
                 //then we get the item for this
                 const top = copy[topPosition][columnIndex];
-                //the square under this has the same column index but we need to have the max number of rows, which we get from the copy
-                const bottomPosition = rowIndex === copy.length - 1 ? copy.length - 1 : rowIndex + 1;
                 //then get the item at this position
                 const bottom = copy[bottomPosition][columnIndex];
                 //the others we have already worked out
@@ -51,20 +68,19 @@ const addNewBirths = (copy: boolean[][]): boolean[][] => {
     copy.forEach((row, rowIndex) => {
         row.forEach((column, columnIndex) => {
             if (column === false) {
-                //the square to the left is index - 1 with a floor of 0
-                const leftPosition = columnIndex === 0 ? 0 : columnIndex - 1;
+                //use shared function to get positions
+                const [leftPosition, rightPosition, topPosition, bottomPosition] = BoundedAdjacentPositions(
+                    rowIndex,
+                    columnIndex,
+                    row.length,
+                    copy.length
+                );
                 //then we get the item for this , with the current row and the new left position
                 const left = copy[rowIndex][leftPosition];
-                //the square to the right is index + 1 with a max of row width
-                const rightPosition = columnIndex === row.length - 1 ? row.length - 1 : columnIndex + 1;
                 //then we get the item for this
                 const right = copy[rowIndex][rightPosition];
-                //the square to the top is one row above, with the same column index, with a floor of 0
-                const topPosition = rowIndex === 0 ? 0 : rowIndex - 1;
                 //then we get the item for this
                 const top = copy[topPosition][columnIndex];
-                //the square under this has the same column index but we need to have the max number of rows, which we get from the copy
-                const bottomPosition = rowIndex === copy.length - 1 ? copy.length - 1 : rowIndex + 1;
                 //then get the item at this position
                 const bottom = copy[bottomPosition][columnIndex];
                 //the others we have already worked out
