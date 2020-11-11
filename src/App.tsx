@@ -1,46 +1,29 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
-import { RacingBarExample } from './components/racingBarExample';
-import { LineExample } from './components/lineExample';
-import { AnimatedBarExample } from './components/animatedBarExample';
-import { AnimatedTreeExample } from './components/animatedTreeExample';
-import { WorldMapExample } from './components/worldMapExample';
-import { RotatingWorldMapExample } from './components/rotatingWorldMapEample';
-import { GameOfLifeExample } from './components/gameOfLifeExample';
+import { Switch, Route } from 'react-router';
+import { Navigation } from './components/navigation';
+import Charts from './pages/charts';
+import Maps from './pages/maps';
+import Visuals from './pages/visuals';
 
 function App() {
     return (
-        <Grid stackable padded relaxed celled='internally'>
-            <Grid.Row columns='equal'>
-                <Grid.Column>
-                    <RacingBarExample />
-                </Grid.Column>
-                <Grid.Column>
-                    <LineExample />
-                </Grid.Column>
-                <Grid.Column>
-                    <AnimatedBarExample />
-                </Grid.Column>
-            </Grid.Row>
-            <Grid.Row columns={1}>
-                <Grid.Column>
-                    <GameOfLifeExample />
-                </Grid.Column>
-            </Grid.Row>
-            <Grid.Row columns={1}>
-                <Grid.Column>
-                    <AnimatedTreeExample />
-                </Grid.Column>
-            </Grid.Row>
-            <Grid.Row columns='equal'>
-                <Grid.Column>
-                    <WorldMapExample />
-                </Grid.Column>
-                <Grid.Column>
-                    <RotatingWorldMapExample />
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
+        <div className='appContainer'>
+            <Navigation />
+            <Switch>
+                <Route path='/charts'>
+                    <Charts />
+                </Route>
+                <Route path='/maps'>
+                    <Maps />
+                </Route>
+                <Route path='/visuals'>
+                    <Visuals />
+                </Route>
+                <Route path='*'>
+                    <Charts />
+                </Route>
+            </Switch>
+        </div>
     );
 }
 

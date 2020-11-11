@@ -57,10 +57,8 @@ export const RotatingWorldMap = ({ data, property }) => {
 
         const enableRotation = () => {
             timer(function (elapsed) {
-                /*
                 projection.rotate([config.speed * elapsed - 120, config.verticalTilt, config.horizontalTilt]);
                 svg.selectAll('path').attr('d', path);
-                */
             });
         };
 
